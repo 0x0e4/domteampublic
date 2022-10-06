@@ -9,7 +9,14 @@ function loginSubmit()
 		return;
 	}
 
-	// ...
+	$.get("./engine/api/users.php", { method: "gettoken", mail: mail, pass: pass })
+	.done(function(data) {
+		let code = parseInt(data);
+		if(code == 0)
+			$(".error").html("Молодец");
+		else if(code == -2 || code == -200)
+			$(".error").html("Ты ошибся дверью, клуб кожевников этажом выше");
+	});
 }
 
 function registerSubmit()

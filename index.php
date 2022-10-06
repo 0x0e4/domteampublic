@@ -2,8 +2,14 @@
 <?php
 require_once "./engine/config.php";
 require_once "./engine/models/mysql.php";
+require_once "./engine/models/users.php";
 
-// Проверка на вход
+if(isset($_COOKIE['uid']) && isset($_COOKIE['token']))
+{
+	$GLOBALS['logged'] = checkToken($_COOKIE['uid'], $_COOKIE['token']);
+}
+else
+	$GLOBALS['logged'] = false;
 
 include "./engine/templates/login.php";
 
