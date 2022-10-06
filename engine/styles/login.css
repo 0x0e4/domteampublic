@@ -1,0 +1,9 @@
+.login-panel {
+	display: block;
+	text-align: center;
+}
+
+.error {
+	color: darkred;
+	font-weight: bold;
+}
