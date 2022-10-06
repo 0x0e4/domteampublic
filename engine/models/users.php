@@ -8,6 +8,9 @@ function checkToken($uid, $token)
 
 	$query = $db->query("SELECT `id`, `pass`, `hash` FROM `users` WHERE `id`={$uid}");
 	$result = $query->fetchAll();
+
+	close_database_connection($db);
+
 	if(count($result) == 0)
 		return false;
 
