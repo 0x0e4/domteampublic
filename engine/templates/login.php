@@ -10,7 +10,7 @@
 		<input type="text" id="mail" required minlength="4" maxlength="64" placeholder="Введите e-mail..."><br>
 		<input type="password" id="pass" required minlength="4" maxlength="64" placeholder="Введите пароль..."><br>
 		<button id="submit-login" onclick="loginSubmit();">Авторизоваться</button><br>
-		<button id="submit-register" onclick="registerSubmit();">Регистрация</button><br>
-		<div class="error"><?php if($GLOBALS['logged']) echo "Добро пожаловать!"; ?></div>
+		<button id="submit-register" onclick="goRegisterPage();">Регистрация</button><br>
+		<div class="error"></div>
 	</div>
 </body>

@@ -8,9 +8,11 @@ $db = open_database_connection();
 
 if($_GET['method'] == "register")
 {
-	if(!check_length($_GET['mail'], 4, 64) || !check_length($_GET['pass'], 4, 64)) die('-2');
+	if(!check_length($_GET['mail'], 4, 64) || !check_length($_GET['pass'], 4, 64) || !check_length($_GET['name'], 4, 64) || !check_length($_GET['surname'], 4, 64)) die('-2');
 
 	$mail = $_GET['mail'];
+	$name = $_GET['name'];
+	$surname = $_GET['surname'];
 	$pass = md5($_GET['pass'].SALT);
 
 	$result = $db->query("SELECT COUNT(`id`) FROM `users` WHERE `mail`='{$mail}'");
@@ -19,7 +21,7 @@ if($_GET['method'] == "register")
 
 	$hash = substr(str_shuffle(PERMITTED_CHARS), 0, 7); // формирование уникального хэша пользователя
 
-	$db->query("INSERT INTO `users` (`mail`, `pass`, `hash`) VALUES ('{$mail}', '{$pass}', '{$hash}')");
+	$db->query("INSERT INTO `users` (`mail`, `name`, `surname`, `pass`, `hash`) VALUES ('{$mail}', '{$name}', '{$surname}', '{$pass}', '{$hash}')");
 	die($db->lastInsertId());
 }
 elseif($_GET['method'] == "gettoken")
