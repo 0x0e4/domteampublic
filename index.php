@@ -13,6 +13,7 @@ else
 	$GLOBALS['logged'] = false;
 
 if(!isset($_GET['url'])) $_GET['url'] = "";
+$_GET['url'] = explode("?", $_GET['url'])[0];
 $_GET['url'] = strtolower($_GET['url']);
 
 if(!$GLOBALS['logged'])
@@ -26,6 +27,19 @@ if(!$GLOBALS['logged'])
 		}
 		default:
 			include "./engine/templates/login.php";
+	}
+}
+else
+{
+	switch($_GET['url'])
+	{
+		case "news":
+		{
+			include "./engine/templates/advers.php";
+			break;
+		}
+		default:
+			include "./engine/templates/main.php";
 	}
 }
 

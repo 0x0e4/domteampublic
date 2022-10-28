@@ -13,7 +13,7 @@ function loginSubmit()
 	.done(function(data) {
 		let errcode = parseInt(data);
 		if(errcode == 0)
-			$(".error").html("Ошибок нет. Добро пожаловать в качалку.");
+			navigateTo('.');
 		else if(errcode == -2 || errcode == -200)
 			$(".error").html("Ты ошибся дверью, клуб кожевников этажом выше. Ошибка то ли -2, то ли -200, хз.");
 	});

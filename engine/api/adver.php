@@ -10,25 +10,29 @@ $db = open_database_connection();
 
 if(!check_length($_GET['token'], 1, 256) || !check_token($_GET['uid'], $_GET['token'])) die('-3');
 
-if($_GET['method'] == "addadver")
+if($_GET['method'] == "add")
 {
-	if(!isRecIdValid($_GET['rec_id']) || !check_length($_GET['text'], 1, 512)) die('-2');
+	if(!isHouseValid($_GET['hid']) || !isUserManager($_COOKIE['uid'], $_GET['hid']) || !check_length($_GET['topic'], 1, 128) || !check_length($_GET['text'], 1, 8168)) die('-2');
+	$uid = $_COOKIE['uid'];
+	$hid = $_GET['hid'];
 
-	$uid = $_GET['uid'];
-	$rec_id = $_GET['rec_id'];
+	$topic = $_GET['topic'];
 	$text = $_GET['text'];
 
-	if(!isRecIdValid($rec_id)) die('-200');
+	$db->query("INSERT INTO `advers` (`uid`, `topic`, `text`, `time`, `hid`) VALUES ({$uid}, '{$topic}', '{$text}', ".time().", {$hid})");
+	die('0');
+}
+elseif($_GET['method'] == "del")
+{
+	if(!isUIDValid($_COOKIE['uid']) || !isAdverValid($_GET['id'])) die('-2');
 
-	if($rec_id < 0)
-	{
-		if(!isUserInChat($uid, -$rec_id)) die('-201');
-	}
+	$hid = getHIDOfAdver($_GET['id']);
 
-	$mid = $db->query("SELECT MAX(`id`) AS `id` FROM `messages` WHERE ".(($rec_id < 0) ? "`owner_id`={$uid} AND `receiver_id`={$rec_id}" : "(`owner_id`={$uid} AND `receiver_id`={$rec_id}) OR (`owner_id`={$rec_id} AND `receiver_id`={$uid})"))->fetchColumn()+1;
+	if($hid == 0) die('-200');
+	if(!isUserManager($_COOKIE['uid'], $_GET['hid'])) die('-201');
 
-	$db->query("INSERT INTO `messages` (`id`, `owner_id`, `receiver_id`, `text`) VALUES ({$mid}, {$uid}, {$rec_id}, '{$text}')");
-	die('-202');
+	$db->query("DELETE FROM `advers` WHERE `id`={$_GET['id']}");
+	die('0');
 }
 
 close_database_connection($db);

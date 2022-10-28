@@ -17,6 +17,7 @@ function open_database_connection()
 function close_database_connection(&$link)
 {
     $link = null;
+    return true;
 }
 
 ?>
