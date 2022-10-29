@@ -15,6 +15,7 @@ else
 if(!isset($_GET['url'])) $_GET['url'] = "";
 $_GET['url'] = explode("?", $_GET['url'])[0];
 $_GET['url'] = strtolower($_GET['url']);
+echo $_GET['url'];
 
 if(!$GLOBALS['logged'])
 {
@@ -36,6 +37,15 @@ else
 		case "news":
 		{
 			include "./engine/templates/advers.php";
+			break;
+		}
+		case "advers/add":
+		{
+			if(!isset($_GET['hid']) || !isUserManager($_COOKIE['uid'], $_GET['hid'])) include "./engine/templates/adver.php";
+			else
+			{
+				include "./engine/templates/manager/create.php";
+			}
 			break;
 		}
 		default:

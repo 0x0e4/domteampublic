@@ -1,0 +1,31 @@
+.header-panel {
+  width: 100%;
+  height: 75px;
+  background: rgba(255,255,255,1);
+  overflow: fixed;
+  z-index: 2;
+  position: fixed;
+}
+.container {
+    position: fixed;
+    display: inline-block;
+    top: 30px;
+    left: 30px;
+}
+.bar_icon {
+    width: 35px;
+    height: 5px;
+    background-color: rgba(104,141,251,1);
+    margin: 6px 0;
+}
+.Sliding_Panel {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 75px;
+    left: 0;
+    background-color: rgba(255,255,255,1);
+    overflow-x: hidden;
+    transition: 0.5s;
+}
