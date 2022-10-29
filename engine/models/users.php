@@ -28,12 +28,13 @@ function isUIDValid(&$uid)
 
 function isUserManager(&$uid, &$hid)
 {
-	return isInt($uid) && isInt($hid) && ($db->query("SELECT COUNT(`id`) FROM `managers` WHERE `uid`={$uid} AND `hid`={$hid}")->fetchColumn() > 0 || $db->query("SELECT COUNT(`id`) FROM `admins` WHERE `uid`={$uid}")->fetchColumn() > 0);
+	global $db;
+	return isInt($uid) && isInt($hid) && ($db->query("SELECT COUNT(`uid`) FROM `managers` WHERE `uid`={$uid} AND `hid`={$hid}")->fetchColumn() > 0 || $db->query("SELECT COUNT(`uid`) FROM `admins` WHERE `uid`={$uid}")->fetchColumn() > 0);
 }
 
 function isUserResident(&$uid, &$hid)
 {
-	return isInt($uid) && isInt($hid) && ($db->query("SELECT COUNT(`id`) FROM `residents` WHERE `uid`={$uid} AND `hid`={$hid}")->fetchColumn() > 0 || isUserManager($uid, $hid));
+	return isInt($uid) && isInt($hid) && ($db->query("SELECT COUNT(`uid`) FROM `residents` WHERE `uid`={$uid} AND `hid`={$hid}")->fetchColumn() > 0 || isUserManager($uid, $hid));
 }
 
 function getHousesOfUser(&$uid)
@@ -41,9 +42,9 @@ function getHousesOfUser(&$uid)
 	global $db;
 	if(!isUIDValid($uid)) return null;
 
-	$result = $db->query("SELECT `hid` FROM `residents` WHERE `uid`={$uid}")->fetchAll(PDO::FETCH_COLUMN|PDO::FETCH_GROUP);
+	$result = $db->query("SELECT `hid` FROM `residents` WHERE `uid`={$uid}")->fetchAll(PDO::FETCH_COLUMN);
 
-	return count($result) > 0 ? $result['hid'] : null;
+	return count($result) > 0 ? $result : null;
 }
 
 ?>

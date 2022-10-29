@@ -7,8 +7,8 @@
 <body>
 	<div style="text-align: center;">
 			<input type="text" id="adver-topic" required minlength="4" maxlength="128" placeholder="Введите название объявления..."><br>
-			<textarea id="adver-text" required minlength="4" maxlength="8168" placeholder="Введите текст..."><br>
-			<button id="submit-add" onclick="addAdverSubmit();">Создать объявление</button><br>
+			<textarea id="adver-text" required minlength="4" maxlength="8168" placeholder="Введите текст..."></textarea><br>
+			<button id="submit-add" onclick="addAdverSubmit(<?php echo $_GET['hid']; ?>);">Создать объявление</button><br>
 			<div class="error"></div>
 	</div>
 </body>

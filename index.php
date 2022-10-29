@@ -12,16 +12,15 @@ if(isset($_COOKIE['uid']) && isset($_COOKIE['token']))
 else
 	$GLOBALS['logged'] = false;
 
-if(!isset($_GET['url'])) $_GET['url'] = "";
+$_GET['url'] = $_SERVER['REQUEST_URI'];
 $_GET['url'] = explode("?", $_GET['url'])[0];
 $_GET['url'] = strtolower($_GET['url']);
-echo $_GET['url'];
 
 if(!$GLOBALS['logged'])
 {
 	switch($_GET['url'])
 	{
-		case "register":
+		case "/register":
 		{
 			include "./engine/templates/register.php";
 			break;
@@ -34,18 +33,20 @@ else
 {
 	switch($_GET['url'])
 	{
-		case "news":
+		case "/news":
 		{
 			include "./engine/templates/advers.php";
 			break;
 		}
-		case "advers/add":
+		case "/addadver":
 		{
-			if(!isset($_GET['hid']) || !isUserManager($_COOKIE['uid'], $_GET['hid'])) include "./engine/templates/adver.php";
+			$db = open_database_connection();
+			if(!isset($_GET['hid']) || !isUserManager($_COOKIE['uid'], $_GET['hid'])) include "./engine/templates/advers.php";
 			else
 			{
 				include "./engine/templates/manager/create.php";
 			}
+			close_database_connection($db);
 			break;
 		}
 		default:

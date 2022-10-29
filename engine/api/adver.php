@@ -8,7 +8,7 @@ require_once "../models/adver.php";
 require_once "../models/users.php";
 $db = open_database_connection();
 
-if(!check_length($_GET['token'], 1, 256) || !check_token($_GET['uid'], $_GET['token'])) die('-3');
+if(!check_length($_COOKIE['token'], 1, 256) || !checkToken($_COOKIE['uid'], $_COOKIE['token'])) die('-3');
 
 if($_GET['method'] == "add")
 {

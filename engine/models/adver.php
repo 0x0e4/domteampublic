@@ -6,10 +6,11 @@ require_once dirname(__FILE__)."/users.php";
 
 function isHouseValid(&$id)
 {
+	global $db;
 	return isInt($id) && $db->query("SELECT COUNT(`id`) FROM `houses` WHERE `id`={$id}")->fetchColumn() > 0;
 }
 
-functio isAdverValid(&$id)
+function isAdverValid(&$id)
 {
 	return isInt($id) && $db->query("SELECT COUNT(`id`) FROM `advers` WHERE `id`={$id}")->fetchColumn() > 0;
 }
@@ -21,6 +22,20 @@ function getHIDOfAdver(&$id)
 		return $db->query("SELECT `hid` FROM `advers` WHERE `id`={$id}")->fetchColumn();
 	else
 		return 0;
+}
+
+function getHousesAddress($arrhid)
+{
+	global $db;
+	return $db->query("SELECT `address` FROM `houses` WHERE `id` IN (".implode(',', $arrhid).")")->fetchAll(PDO::FETCH_COLUMN);
+}
+
+function getAdvers($arrhid)
+{
+	global $db;
+	$query = $db->query("SELECT * FROM `advers` WHERE `hid` IN (".implode(',', $arrhid).") ORDER BY `id` DESC");
+	$result = $query->fetchAll(PDO::FETCH_ASSOC);
+	return $result;
 }
 
 ?>
