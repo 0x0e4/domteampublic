@@ -37,3 +37,8 @@
     top: 25%;
     bottom: 25%;
 }
+
+#To_Add_Adver_Button{
+  overflow: hidden;
+  margin: 5%;
+}

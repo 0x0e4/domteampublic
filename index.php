@@ -46,7 +46,7 @@ else
 		case "/addadver":
 		{
 			$db = open_database_connection();
-			if(!isset($_GET['hid']) || !isUserManager($_COOKIE['uid'], $_GET['hid'])) include "./engine/templates/advers.php";
+			if(!isUserManager($_COOKIE['uid'])) include "./engine/templates/advers.php";
 			else
 			{
 				include "./engine/templates/manager/create.php";

@@ -11,7 +11,7 @@ function navigateTo(url, params = { }, pushState = true)
 {
   if(pushState)
     history.pushState(params, null, url);
-  var mainblock = $('body');
+  var mainblock = $('html');
   $.post(url, params)
   .done(function(data) {
     mainblock.html(data);

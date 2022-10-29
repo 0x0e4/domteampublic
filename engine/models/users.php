@@ -26,10 +26,10 @@ function isUIDValid(&$uid)
 	return isInt($uid) && $db->query("SELECT COUNT(`id`) FROM `users` WHERE `id`={$uid}")->fetchColumn() > 0;
 }
 
-function isUserManager(&$uid, &$hid)
+function isUserManager(&$uid)
 {
 	global $db;
-	return isInt($uid) && isInt($hid) && ($db->query("SELECT COUNT(`uid`) FROM `managers` WHERE `uid`={$uid} AND `hid`={$hid}")->fetchColumn() > 0 || $db->query("SELECT COUNT(`uid`) FROM `admins` WHERE `uid`={$uid}")->fetchColumn() > 0);
+	return isInt($uid) && ($db->query("SELECT COUNT(`uid`) FROM `managers` WHERE `uid`={$uid}")->fetchColumn() > 0 || $db->query("SELECT COUNT(`uid`) FROM `admins` WHERE `uid`={$uid}")->fetchColumn() > 0);
 }
 
 function isUserResident(&$uid, &$hid)

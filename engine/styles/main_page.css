@@ -12,6 +12,7 @@
   left: 20%;
   right: 15%;
   overflow-y: scroll;
+  text-align: center;
 } 
 .one_advers{
   position: relative;
@@ -45,4 +46,8 @@
 	background: white;
 	z-index: 0;
 	margin: auto;
+}
+
+.picture {
+  width: 40vw;
 }

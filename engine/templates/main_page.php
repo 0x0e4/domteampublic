@@ -19,9 +19,12 @@ require_once "./engine/models/adver.php";
   		<div class="bar_icon"></div>
   		<div class="bar_icon"></div>
   		<div id="Sliding_Panel" class="Sliding_Panel">
+  			<button id="To_Add_Adver_Button" onclick="navigateTo('./addadver')">Создать объявление</button>
   		</div>
   	</div>
+  	<?php if(!$GLOBALS['logged']) { ?>
   	<button id="Enter_Button" onclick="navigateTo('./login')">Войти</button>
+  <?php } ?>
   </div>
   
 </header>
@@ -37,6 +40,9 @@ require_once "./engine/models/adver.php";
 		for($i = 0; $i < count($advers); $i++) {
 		?>
 		<div class="topic"><?php echo $advers[$i]['topic']; ?></div><br><br>
+		<?php if($advers[$i]['photo_id'] != "") { ?>
+		<div><img class="picture" src="./engine/storage/<?php echo $advers[$i]['photo_id'].getPhotoFormat($advers[$i]['photo_id']); ?>"></div>
+	<?php } ?>
 		<div class="time"><?php echo date('Y-m-d H:i', $advers[$i]['time']); ?></div><br>
 		<div class="hid">Адрес дома: <?php echo $addr[array_search($advers[$i]['hid'], $houses)]; ?></div><br>
 		<div class="text"><?php echo $advers[$i]['text']; ?></div><hr>
