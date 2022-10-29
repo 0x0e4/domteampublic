@@ -1,4 +1,19 @@
-function navigateTo(url)
+function navigate(event) {
+
+  // Prevent default click action
+  event.preventDefault();
+
+  navigateTo($(this).attr('href'));
+  return false;
+}
+
+function navigateTo(url, params = { }, pushState = true)
 {
-	$('body').load(url);
+  if(pushState)
+    history.pushState(params, null, url);
+  var mainblock = $('body');
+  $.post(url, params)
+  .done(function(data) {
+    mainblock.html(data);
+  });
 }
