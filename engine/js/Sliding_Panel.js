@@ -5,7 +5,7 @@ function Sliding_Panel(){
         is_Sliding_Panel_Open = false;
     }
     else {
-        document.getElementById("Sliding_Panel").style.width = "250px";
+        document.getElementById("Sliding_Panel").style.width = "15%";
         is_Sliding_Panel_Open = true;
     }
 }
