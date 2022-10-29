@@ -19,7 +19,8 @@ require_once "./engine/models/adver.php";
 		<div class="topic"><?php echo $advers[$i]['topic']; ?></div><br><br>
 		<div class="time"><?php echo date('Y-m-d H:i', $advers[$i]['time']); ?></div><br>
 		<div class="hid">Адрес дома: <?php echo $addr[array_search($advers[$i]['hid'], $houses)]; ?></div><br>
-		<div class="text"><?php echo $advers[$i]['text']; ?></div><hr>
+		<div class="text"><?php echo $advers[$i]['text']; ?></div>
+		<img src="./engine/storage/<?php echo $advers[$i]['photo_id'].getPhotoFormat($advers[$i]['photo_id']); ?>" style="width: 40%;"><hr>
 	<?php } ?>
 	</div>
 </body>

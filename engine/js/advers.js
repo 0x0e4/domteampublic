@@ -1,18 +1,17 @@
 function addAdverSubmit(hid)
 {
-	let topic = $("#adver-topic").val();
-	let text = $("#adver-text").val();
-
-	if(text.length < 4 || text.length > 8168 || topic.length < 4 || topic.length > 256) //Провiрка верности логина или пароля при логине
-	{
-		$(".error").html("Некорректная длина заголовка или текста, приятель.");
-		return;
-	}
-
-	$.get("./engine/api/adver.php", { method: "add", text: text, topic: topic, hid: hid })
-	.done(function(data) {
-		let errcode = parseInt(data);
-		if(errcode == 0)
-			navigateTo('./news');
-	});
+		var fd = new FormData;
+		fd.append('method', "add");
+		fd.append('topic', $("#adver-topic").val());
+		fd.append('text', $("#adver-text").val());
+		fd.append('hid', hid);
+		if($('#photo-upload')[0].files[0] != null)
+			fd.append('file', $('#photo-upload')[0].files[0]);
+		$.post({ url: "./engine/api/adver.php", type: "POST", data: fd, processData: false, contentType: false, dataType: "text"})
+		.done(function(data)
+		{
+			let errcode = parseInt(data);
+			if(errcode == 0)
+				navigateTo('./news');
+		});
 }

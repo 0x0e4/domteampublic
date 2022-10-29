@@ -27,15 +27,25 @@ function getHIDOfAdver(&$id)
 function getHousesAddress($arrhid)
 {
 	global $db;
-	return $db->query("SELECT `address` FROM `houses` WHERE `id` IN (".implode(',', $arrhid).")")->fetchAll(PDO::FETCH_COLUMN);
+	if(count($arrhid))
+		return $db->query("SELECT `address` FROM `houses` WHERE `id` IN (".implode(',', $arrhid).")")->fetchAll(PDO::FETCH_COLUMN);
+	else
+		return array();
 }
 
 function getAdvers($arrhid)
 {
 	global $db;
+	if(count($arrhid))
+	{
 	$query = $db->query("SELECT * FROM `advers` WHERE `hid` IN (".implode(',', $arrhid).") ORDER BY `id` DESC");
 	$result = $query->fetchAll(PDO::FETCH_ASSOC);
 	return $result;
+	}
+	else
+	{
+		return array();
+	}
 }
 
 ?>

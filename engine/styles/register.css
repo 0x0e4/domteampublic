@@ -1,0 +1,72 @@
+
+login-panel {
+	display: block;
+	text-align: center;
+}
+img { position: relative; display: block; margin: 3vh; border: none; padding: 0px; }
+.error {
+	color: darkred;
+	font-weight: bold;
+}
+#register_bg {
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	background: rgba(104,141,251,1);
+	position: fixed;
+	z-index: -99999;
+}
+
+#register_logo_img {
+	position: relative;
+	height: 10vh;
+ 	margin-left: auto; 
+ 	margin-right: auto;
+ 	margin-top: 1vh;
+ 	margin-bottom: 0;
+ 	top: 1vh;
+	
+}
+#register_panel {
+	text-align: center;
+	width: 30vw;
+	height: 60vh;
+	background: white;
+	z-index: 0;
+	margin: auto;
+	margin-top: 11vh;
+}
+
+#mail{
+	border: none;
+	margin: 3%;
+	position: relative ;
+	text-align: center;
+	margin-top: 10%;
+}
+#name{
+	border: none;
+	margin: 3%;
+	margin-left: 0;
+	margin-right: 0;
+	text-align: center;
+}
+#surname {
+	border: none;
+	margin: 3%;
+	margin-left: 0;
+	margin-right: 0;
+	text-align: center;
+}
+#pass{
+	border: none;
+	margin: 3%;
+	text-align: center;
+}
+#submit_register{
+	margin-top: 10%;
+}
+#submit-login{
+	margin-top: 10%;
+}

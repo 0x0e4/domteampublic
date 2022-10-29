@@ -25,8 +25,13 @@ if(!$GLOBALS['logged'])
 			include "./engine/templates/register.php";
 			break;
 		}
-		default:
+		case "/login":
+		{
 			include "./engine/templates/login.php";
+			break;
+		}
+		default:
+			include "./engine/templates/main_page.php";
 	}
 }
 else
@@ -50,7 +55,7 @@ else
 			break;
 		}
 		default:
-			include "./engine/templates/main.php";
+			include "./engine/templates/main_page.php";
 	}
 }
 
