@@ -23,22 +23,70 @@
     width: 0;
     position: fixed;
     z-index: 1;
-    top: 10%;
+    top: 11.1%;
     left: 0;
     background-color: rgba(255,255,255,1);
-    overflow-x: hidden;
+    overflow: hidden;
     transition: 0.5s;
 }
 #Enter_Button{
     position: absolute;
     height: 50%;
-    width: 7%;
+    width: 8%;
     right: 10%;
     top: 25%;
     bottom: 25%;
+    appearance: none;
+    border: 0;
+    border-radius: 7px;
+    background: rgba(104,141,251,1);
+    color: #fff;
+    font-size: 80%;
+    font-family: 'Verdana';
+    font-style: normal;
+}
+
+#Register_Button{
+    position: absolute;
+    height: 50%;
+    width: 10%;
+    right: 20%;
+    top: 25%;
+    bottom: 25%;
+    appearance: none;
+    border: 0;
+    border-radius: 7px;
+    background: rgba(104,141,251,1);
+    color: #fff;
+    font-size: 80%;
+    font-family: 'Verdana';
+    font-style: normal;
+
 }
 
 #To_Add_Adver_Button{
-  overflow: hidden;
-  margin: 5%;
+    overflow: hidden;
+    margin: 5%;
+    position: absolute;
+    height: 5%;
+    width: 80%;
+    right: 5%;
+    top: 5%;
+    bottom: 2%;
+    appearance: none;
+    border: 0;
+    border-radius: 7px;
+    background: rgba(104,141,251,1);
+    color: #fff;
+    font-size: 80%;
+    font-family: 'Verdana';
+    font-style: normal;
+    white-space: nowrap;
+}
+
+#main_page_logo{
+    margin-top: 0%;
+    margin-bottom: 0%;
+    width: 15%;
+    height: 100%;
 }

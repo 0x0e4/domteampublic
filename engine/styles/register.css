@@ -1,9 +1,16 @@
-
+input {
+	font-size: 	large;
+}
 login-panel {
 	display: block;
 	text-align: center;
 }
-img { position: relative; display: block; margin: 3vh; border: none; padding: 0px; }
+img { 
+	position: relative; 
+	display: block;
+	margin: 3vh; 
+	border: none;
+	padding: 0px; }
 .error {
 	color: darkred;
 	font-weight: bold;
@@ -19,54 +26,92 @@ img { position: relative; display: block; margin: 3vh; border: none; padding: 0p
 }
 
 #register_logo_img {
-	position: relative;
-	height: 10vh;
+	position: static;
+	height: 26.4150vh;
  	margin-left: auto; 
  	margin-right: auto;
- 	margin-top: 1vh;
+ 	margin-top: 13.88888%;
  	margin-bottom: 0;
  	top: 1vh;
 	
 }
 #register_panel {
 	text-align: center;
-	width: 30vw;
-	height: 60vh;
+	width: 27.6041vw;
+	height: 78.7037vh;
 	background: white;
 	z-index: 0;
-	margin: auto;
-	margin-top: 11vh;
+	margin-top: 10.6481vh;
+	margin-bottom: 10.6481vh;
+	margin-left:36.1979vw;
+	margin-right:36.1979vw;
+	border-radius: 	15px;		
 }
 
 #mail{
+	box-sizing: border-box;
+	height: 8.235294%;
+	width: 65.66037%;
 	border: none;
-	margin: 3%;
-	position: relative ;
+	position: static		;
 	text-align: center;
-	margin-top: 10%;
+	margin-top: 02.23529%;
+	border: 1px solid #545454;
+	border-radius: 15px;
 }
 #name{
+	box-sizing: border-box;
+	height: 8.235294%;
+	width: 65.66037%;
 	border: none;
-	margin: 3%;
-	margin-left: 0;
-	margin-right: 0;
+	position: static		;
 	text-align: center;
+	margin-top: 02.23529%;
+	border: 1px solid #545454;
+	border-radius: 15px;
 }
 #surname {
+	box-sizing: border-box;
+	height: 8.235294%;
+	width: 65.66037%;
 	border: none;
-	margin: 3%;
-	margin-left: 0;
-	margin-right: 0;
+	position: static		;
 	text-align: center;
+	margin-top: 02.23529%;
+	border: 1px solid #545454;
+	border-radius: 15px;
 }
 #pass{
+	box-sizing: border-box;
+	height: 8.235294%;
+	width: 65.66037%;
 	border: none;
-	margin: 3%;
+	position: static		;
 	text-align: center;
+	margin-top: 02.23529%;
+	border: 1px solid #545454;
+	border-radius: 15px;
 }
 #submit_register{
-	margin-top: 10%;
+	box-sizing: border-box;
+	margin-top: 04.2352941%;
+	height: 06.941176%;
+	width: 65.66037%;
+	font-size: 	large;
+	background-color: #545454;
+	color: 	white;
+	border: 1px solid #545454;
+	border-radius: 15px;
 }
 #submit-login{
 	margin-top: 10%;
+}
+#register_panel_name{
+	font-family: 'Verdana';
+	font-style: normal;
+	font-size: x-large	;
+	text-align: center;
+	margin-top: 4%;
+	color: #000000;
+
 }

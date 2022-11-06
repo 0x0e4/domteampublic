@@ -22,11 +22,13 @@ require_once "./engine/models/adver.php";
   			<button id="To_Add_Adver_Button" onclick="navigateTo('./addadver')">Создать объявление</button>
   		</div>
   	</div>
+  	<img src="../../engine/images/domteam_logo.svg" id="main_page_logo" />
   	<?php if(!$GLOBALS['logged']) { ?>
-  	<button id="Enter_Button" onclick="navigateTo('./login')">Войти</button>
+  	<button id="Enter_Button" class="Enter_Button" onclick="navigateTo('./login')">Войти</button>
+  	<button id="Register_Button" class="Enter_Button" onclick="navigateTo('./register')">Зарегистрироваться</button>
   <?php } ?>
   </div>
-  
+
 </header>
 
 <div class="background_site">

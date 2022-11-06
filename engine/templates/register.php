@@ -11,16 +11,20 @@
 			<div id="register_bg"> </div>
 			<div id="register_panel">
 				<img src="./engine/images/register_logo.png" id="register_logo_img" />
+				<font id="register_panel_name">Регистрация</font><br>	
 				<input type="text" id="mail" required minlength="4" maxlength="64" placeholder="Введите e-mail..."><br>
-				<input type="text" id="name" required minlength="4" maxlength="64" placeholder="Введите имя...">  <input type="text" id="surname" required minlength="4" maxlength="64" placeholder="Введите фамилию..."><br>
+				<input type="text" id="name" required minlength="4" maxlength="64" placeholder="Введите имя..."><br>
+				<input type="text" id="surname" required minlength="4" maxlength="64" placeholder="Введите фамилию..."><br>
 				<input type="password" id="pass" required minlength="4" maxlength="64" placeholder="Введите пароль..."><br>
-    			<p>Регистрируясь вы подтверждаете свое согласие с <a href="#">Условиями пользования</a>.</p>
+				<input type="password" id="pass" required minlength="4" maxlength="64" placeholder="Повторите пароль..."><br>
+    			<!--<p>Регистрируясь вы подтверждаете свое согласие с <a href="#">Условиями пользования</a>.</p>-->
 				<button id="submit_register" onclick="registerSubmit();">Регистрация</button><br>
 				<div class="container signin">
-    			<p>Уже имеете аккаунт? <a href="./login">Войти</a>.</p>
+    			<!--<p>Уже имеете аккаунт? <a href="./login">Войти</a>.</p>-->
   		</div>
 		<div class="error"></div>
 	</div> </div>
 		</div>
 	</div>
+</body>
 </body>
