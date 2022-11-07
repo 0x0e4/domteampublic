@@ -33,6 +33,12 @@ function getHousesAddress($arrhid)
 		return array();
 }
 
+function getTags()
+{
+	global $db;
+	return $db->query("SELECT `id`, `name` FROM `tags` WHERE 1")->fetchAll();
+}
+
 function getAdvers($arrhid)
 {
 	global $db;

@@ -15,3 +15,23 @@ function addAdverSubmit()
 				navigateTo('./');
 		});
 }
+
+function addTagSubmit()
+{
+		$.get("./engine/api/adver.php", { method: "addtag", tag: $("#tag-name").val(), onlymanager: $("#only-manager").is(":checked") ? 1 : 0 })
+		.done(function(data) {
+			let errcode = parseInt(data);
+			if(errcode == 0)
+				navigateTo('./');
+		});
+}
+
+function delTagSubmit()
+{
+		$.get("./engine/api/adver.php", { method: "deltag", tagid: $("#select-tag").val() })
+		.done(function(data) {
+			let errcode = parseInt(data);
+			if(errcode == 0)
+				navigateTo('./');
+		});
+}

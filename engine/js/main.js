@@ -1,4 +1,4 @@
-function navigate(event) {
+/*function navigate(event) {
 
   // Prevent default click action
   event.preventDefault();
@@ -16,4 +16,8 @@ function navigateTo(url, params = { }, pushState = true)
   .done(function(data) {
     mainblock.html(data);
   });
+}*/
+function navigateTo(url)
+{
+	window.location.href = url;
 }

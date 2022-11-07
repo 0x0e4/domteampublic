@@ -36,6 +36,26 @@ elseif($_GET['method'] == "del")
 	$db->query("DELETE FROM `advers` WHERE `id`={$_GET['id']}");
 	die('0');
 }
+elseif($_GET['method'] == "addtag")
+{
+	if(!isUserManager($_COOKIE['uid']) || !check_length($_GET['tag'], 1, 32)) die('-2');
+	$uid = $_COOKIE['uid'];
+
+	$tag = $_GET['tag'];
+
+	$sth = $db->prepare("INSERT INTO `tags` (`name`, `only-manager`) VALUES (?, ?)");
+	$sth->execute([$tag, $_GET['onlymanager']]);
+	die('0');
+}
+elseif($_GET['method'] == "deltag")
+{
+	if(!isUIDValid($_COOKIE['uid'])) die('-2');
+
+	if(!isUserManager($_COOKIE['uid'])) die('-200');
+
+	$db->query("DELETE FROM `tags` WHERE `id`={$_GET['tagid']}");
+	die('0');
+}
 }
 else
 {

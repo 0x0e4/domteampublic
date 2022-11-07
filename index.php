@@ -1,5 +1,6 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="./engine/js/main.js"></script>
+<link rel="stylesheet" href="./main.css">
 <?php
 require_once "./engine/config.php";
 require_once "./engine/models/mysql.php";
@@ -50,6 +51,17 @@ else
 			else
 			{
 				include "./engine/templates/manager/create.php";
+			}
+			close_database_connection($db);
+			break;
+		}
+		case "/tags":
+		{
+			$db = open_database_connection();
+			if(!isUserManager($_COOKIE['uid'])) include "./engine/templates/advers.php";
+			else
+			{
+				include "./engine/templates/manager/tags.php";
 			}
 			close_database_connection($db);
 			break;

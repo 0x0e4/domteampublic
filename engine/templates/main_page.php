@@ -19,7 +19,8 @@ require_once "./engine/models/adver.php";
   		<div class="bar_icon"></div>
   		<div class="bar_icon"></div>
   		<div id="Sliding_Panel" class="Sliding_Panel">
-  			<button id="To_Add_Adver_Button" onclick="navigateTo('./addadver')">Создать объявление</button>
+  			<button class="To_Add_Adver_Button" onclick="navigateTo('./addadver')">Создать объявление</button>
+  			<button class="To_Add_Adver_Button" onclick="navigateTo('./tags')">Тэги</button>
   		</div>
   	</div>
   	<img src="../../engine/images/domteam_logo.svg" id="main_page_logo" />
