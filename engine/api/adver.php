@@ -13,15 +13,16 @@ if(!check_length($_COOKIE['token'], 1, 256) || !checkToken($_COOKIE['uid'], $_CO
 if(isset($_GET['method'])) {
 if($_GET['method'] == "add")
 {
-	if(!isHouseValid($_GET['hid']) || !isUserManager($_COOKIE['uid'], $_GET['hid']) || !check_length($_GET['topic'], 1, 128) || !check_length($_GET['text'], 1, 8168)) die('-2');
+	if(!isHouseValid($_GET['hid']) || !isUserManager($_COOKIE['uid'], $_GET['hid']) || !check_length($_GET['topic'], 1, 128) || !check_length($_GET['text'], 1, 8168) || !check_length($_GET['tags'], 0, 64)) die('-2');
 	$uid = $_COOKIE['uid'];
 	$hid = $_GET['hid'];
 
 	$topic = $_GET['topic'];
 	$text = nl2br($_GET['text']);
+	$tags = json_encode(checkTags(json_decode($_GET['tags'])));
 
-	$sth = $db->prepare("INSERT INTO `advers` (`uid`, `topic`, `text`, `time`, `hid`) VALUES (?, ?, ?, ?, ?)");
-	$sth->execute([$uid, $topic, $text, time(), $hid]);
+	$sth = $db->prepare("INSERT INTO `advers` (`uid`, `topic`, `text`, `time`, `hid`, `tags`) VALUES (?, ?, ?, ?, ?, ?)");
+	$sth->execute([$uid, $topic, $text, time(), $hid, $tags]);
 	die('0');
 }
 elseif($_GET['method'] == "del")
@@ -61,7 +62,7 @@ else
 {
 	if($_POST['method'] == "add")
 	{
-		if(!isHouseValid($_POST['hid']) || !isUserManager($_COOKIE['uid'], $_POST['hid']) || !check_length($_POST['topic'], 1, 128) || !check_length($_POST['text'], 1, 8168)) die('-2');
+		if(!isHouseValid($_POST['hid']) || !isUserManager($_COOKIE['uid'], $_POST['hid']) || !check_length($_POST['topic'], 1, 128) || !check_length($_POST['text'], 1, 8168) || !check_length($_POST['tags'], 0, 64)) die('-2');
 
 		$photo_id = "";
 		if(isset($_FILES) && isset($_FILES['file']))
@@ -80,9 +81,10 @@ else
 
 		$topic = $_POST['topic'];
 		$text = nl2br($_POST['text']);
+		$tags = json_encode(checkTags(json_decode($_POST['tags'])));
 
-		$sth = $db->prepare("INSERT INTO `advers` (`uid`, `topic`, `text`, `time`, `hid`, `photo_id`) VALUES (?, ?, ?, ?, ?, ?)");
-		$sth->execute([$uid, $topic, $text, time(), $hid, $photo_id]);
+		$sth = $db->prepare("INSERT INTO `advers` (`uid`, `topic`, `text`, `time`, `hid`, `photo_id`, `tags`) VALUES (?, ?, ?, ?, ?, ?, ?)");
+		$sth->execute([$uid, $topic, $text, time(), $hid, $photo_id, $tags]);
 		die('0');
 	}
 }

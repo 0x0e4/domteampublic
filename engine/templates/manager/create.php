@@ -1,3 +1,6 @@
+<?php
+require_once "./engine/models/adver.php";
+?>
 <head>
 	<title>Создание объявления</title>
 	<meta charset="utf-8">
@@ -23,6 +26,20 @@
 				 ?>
 			</select><br>
 			<input type="file" id="photo-upload" accept="image/*"><br>
+			<select id="select-tag">
+				<?php 
+				$db = open_database_connection();
+				$tags = getTags();
+				foreach($tags as $tag)
+				{
+					if(isUserManager($_COOKIE['uid']) || $tag['only-manager'] == 0)
+						echo "<option value='",$tag['id'],"'>",$tag['name'],"</option>";
+				}
+				close_database_connection($db);
+				 ?>
+			</select><br>
+			<div id="tags-list"></div>
+			<button id="submit-add-advertag" onclick="addAdverTagSubmit();">Добавить тэг</button><br>
 			<button id="submit-add" onclick="addAdverSubmit();">Создать объявление</button><br>
 			<div class="error"></div>
 	</div>

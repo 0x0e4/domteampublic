@@ -1,3 +1,5 @@
+let tags_selected = [];
+
 function addAdverSubmit()
 {
 		var fd = new FormData;
@@ -5,6 +7,7 @@ function addAdverSubmit()
 		fd.append('topic', $("#adver-topic").val());
 		fd.append('text', $("#adver-text").val());
 		fd.append('hid', $('#select-hid').val());
+		fd.append('tags', JSON.stringify(tags_selected));
 		if($('#photo-upload')[0].files[0] != null)
 			fd.append('file', $('#photo-upload')[0].files[0]);
 		$.post({ url: "./engine/api/adver.php", type: "POST", data: fd, processData: false, contentType: false, dataType: "text"})
@@ -34,4 +37,18 @@ function delTagSubmit()
 			if(errcode == 0)
 				navigateTo('./');
 		});
+}
+
+function addAdverTagSubmit()
+{
+	let tid = $("#select-tag").val();
+	if(tid > 0)
+		tags_selected.push(parseInt(tid));
+	$("#tags-list").html($("#tags-list").html()+"<span onclick='delAdverTagSubmit(this, "+tid+");'>"+$("#select-tag").find('option:selected').text()+"</span>");
+}
+
+function delAdverTagSubmit(obj, tid)
+{
+	tags_selected.splice(tags_selected.indexOf(tid), 1);
+	$(obj).remove();
 }

@@ -39,17 +39,23 @@ require_once "./engine/models/adver.php";
 		$houses = getHousesOfUser($_COOKIE['uid']);
 		$addr = getHousesAddress($houses);
 		$advers = getAdvers($houses);
-		close_database_connection($db);
 		for($i = 0; $i < count($advers); $i++) {
+			$tagsid = json_decode($advers[$i]['tags']);
+			$tags = getAdverTags($tagsid);
 		?>
 		<div class="topic"><?php echo $advers[$i]['topic']; ?></div><br><br>
 		<?php if($advers[$i]['photo_id'] != "") { ?>
 		<div><img class="picture" src="./engine/storage/<?php echo $advers[$i]['photo_id'].getPhotoFormat($advers[$i]['photo_id']); ?>"></div>
 	<?php } ?>
 		<div class="time"><?php echo date('Y-m-d H:i', $advers[$i]['time']); ?></div><br>
+		<?php if(count($tagsid) > 0) { ?>
+		<div class="tags">Теги: <?php echo implode(',', $tags); ?></div><br>
+	<?php } ?>
 		<div class="hid">Адрес дома: <?php echo $addr[array_search($advers[$i]['hid'], $houses)]; ?></div><br>
 		<div class="text"><?php echo $advers[$i]['text']; ?></div><hr>
-	<?php } ?>
+	<?php }
+	close_database_connection($db);
+	 ?>
 	</div>
 </div>
 

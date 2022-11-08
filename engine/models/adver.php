@@ -33,10 +33,32 @@ function getHousesAddress($arrhid)
 		return array();
 }
 
+function checkTags($tags)
+{
+	global $db;
+	$arr = array();
+	foreach($tags as $tag)
+	{
+		$data = $db->query("SELECT `only-manager` FROM `tags` WHERE `id`={$tag}")->fetchColumn();
+		if($data == 0 || isUserManager($_COOKIE['uid']))
+			array_push($arr, $tag);
+	}
+	return $arr;
+}
+
 function getTags()
 {
 	global $db;
-	return $db->query("SELECT `id`, `name` FROM `tags` WHERE 1")->fetchAll();
+	return $db->query("SELECT * FROM `tags` WHERE 1")->fetchAll(PDO::FETCH_COLUMN);
+}
+
+function getAdverTags($arr)
+{
+	global $db;
+	if(count($arr))
+		return $db->query("SELECT `name` FROM `tags` WHERE `id` IN (".implode(',', $arr).")")->fetchAll(PDO::FETCH_COLUMN);
+	else
+		return array();
 }
 
 function getAdvers($arrhid)
