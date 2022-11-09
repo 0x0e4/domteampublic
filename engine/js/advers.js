@@ -57,6 +57,8 @@ function delAdverTagSubmit(obj, tid)
 function selectAdverTag()
 {
 	let tid = $("#select-tag").val();
+	if(search_tags.indexOf(parseInt(tid)) >= 0)
+		return;
 	if(tid > 0)
 		search_tags.push(parseInt(tid));
 	$("#tags-select").html($("#tags-select").html()+"<span onclick='delAdverTagSearch(this, "+tid+");'>"+$("#select-tag").find('option:selected').text()+"</span>");
