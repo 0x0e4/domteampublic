@@ -57,6 +57,38 @@ elseif($_GET['method'] == "deltag")
 	$db->query("DELETE FROM `tags` WHERE `id`={$_GET['tagid']}");
 	die('0');
 }
+elseif($_GET['method'] == "getadverwithtags")
+{
+	if(!isUIDValid($_COOKIE['uid'])) die('-2');
+
+	$tags = json_decode($_GET['tags']);
+
+	$houses = getHousesOfUser($_COOKIE['uid']);
+	$q = "SELECT * FROM `advers` WHERE `hid` IN (".implode(',', $houses).") ";
+		foreach($tags as $tag)
+		{
+			$q .= "AND `tags` LIKE '%".$tag."%' ";
+		}
+	$query = $db->query($q);
+		$addr = getHousesAddress($houses);
+		$advers = $query->fetchAll(PDO::FETCH_ASSOC);
+		$result = "";
+		for($i = 0; $i < count($advers); $i++) {
+			$tagsid = json_decode($advers[$i]['tags']);
+			$tags = getAdverTags($tagsid);
+		$result .= '<div class="topic">'.$advers[$i]['topic'].'</div><br><br>';
+		if($advers[$i]['photo_id'] != "") {
+		$result .= '<div><img class="picture" src="./engine/storage/'.$advers[$i]['photo_id'].getPhotoFormat($advers[$i]['photo_id']).'"</div>';
+	}
+		$result .= '<div class="time"><?php echo date("Y-m-d H:i", '.$advers[$i]['time'].'</div><br>';
+		if(count($tagsid) > 0) {
+		$result .= '<div class="tags">Теги: '.implode(',', $tags).'</div><br>';
+	}
+		$result .= '<div class="hid">Адрес дома: '.$addr[array_search($advers[$i]['hid'], $houses)].'</div><br><div class="text">'.$advers[$i]['text'].'</div><hr>';
+	}
+
+	die($result);
+}
 }
 else
 {

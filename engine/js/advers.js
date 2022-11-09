@@ -1,4 +1,5 @@
 let tags_selected = [];
+let search_tags = [];
 
 function addAdverSubmit()
 {
@@ -51,4 +52,29 @@ function delAdverTagSubmit(obj, tid)
 {
 	tags_selected.splice(tags_selected.indexOf(tid), 1);
 	$(obj).remove();
+}
+
+function selectAdverTag()
+{
+	let tid = $("#select-tag").val();
+	if(tid > 0)
+		search_tags.push(parseInt(tid));
+	$("#tags-select").html($("#tags-select").html()+"<span onclick='delAdverTagSearch(this, "+tid+");'>"+$("#select-tag").find('option:selected').text()+"</span>");
+	refreshAdvers();
+}
+
+function refreshAdvers()
+{
+	$("#block_advers").html("");
+	$.get("./engine/api/adver.php", { method: "getadverwithtags", tags: JSON.stringify(search_tags) })
+		.done(function(data) {
+			$("#block_advers").html(data);
+		});
+}
+
+function delAdverTagSearch(obj, tid)
+{
+	search_tags.splice(search_tags.indexOf(tid), 1);
+	$(obj).remove();
+	refreshAdvers();
 }

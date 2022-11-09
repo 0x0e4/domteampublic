@@ -2,13 +2,13 @@
   background-color: rgba(104,141,251,1);
   width: 100%;
   height: 100vh;
+  padding-top: 15%;
 }
 .block_advers{
   background-color: lightsteelblue;
   width: 60%;
   height: 80%;
   position: relative;
-  top: 15%;
   left: 20%;
   right: 15%;
   overflow-y: scroll;

@@ -33,6 +33,17 @@ require_once "./engine/models/adver.php";
 </header>
 
 <div class="background_site">
+	<div id="tags-select" style="text-align: center;">Поиск по тегам: <select id="select-tag">
+				<?php 
+				$db = open_database_connection();
+				$tags = getTags();
+				foreach($tags as $tag)
+				{
+					echo "<option value='",$tag['id'],"'>",$tag['name'],"</option>";
+				}
+				close_database_connection($db);
+				 ?>
+			</select><button onclick="selectAdverTag();">Добавить тег</button><br></div>
 	<div id = "block_advers" class = "block_advers">
 			<?php
 		$db = open_database_connection();

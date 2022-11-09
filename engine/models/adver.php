@@ -49,7 +49,7 @@ function checkTags($tags)
 function getTags()
 {
 	global $db;
-	return $db->query("SELECT * FROM `tags` WHERE 1")->fetchAll(PDO::FETCH_COLUMN);
+	return $db->query("SELECT * FROM `tags` WHERE 1")->fetchAll(PDO::FETCH_ASSOC);
 }
 
 function getAdverTags($arr)
