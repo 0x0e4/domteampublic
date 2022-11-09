@@ -65,10 +65,14 @@ elseif($_GET['method'] == "getadverwithtags")
 
 	$houses = getHousesOfUser($_COOKIE['uid']);
 	$q = "SELECT * FROM `advers` WHERE `hid` IN (".implode(',', $houses).") ";
+		if(count($tags) > 0)
+		{
 		foreach($tags as $tag)
 		{
 			$q .= "AND `tags` LIKE '%".$tag."%' ";
 		}
+	}
+	$q .= " ORDER BY `id` DESC";
 	$query = $db->query($q);
 		$addr = getHousesAddress($houses);
 		$advers = $query->fetchAll(PDO::FETCH_ASSOC);
@@ -80,7 +84,7 @@ elseif($_GET['method'] == "getadverwithtags")
 		if($advers[$i]['photo_id'] != "") {
 		$result .= '<div><img class="picture" src="./engine/storage/'.$advers[$i]['photo_id'].getPhotoFormat($advers[$i]['photo_id']).'"</div>';
 	}
-		$result .= '<div class="time"><?php echo date("Y-m-d H:i", '.$advers[$i]['time'].'</div><br>';
+		$result .= '<div class="time">'.date("Y-m-d H:i", $advers[$i]['time']).'</div><br>';
 		if(count($tagsid) > 0) {
 		$result .= '<div class="tags">Теги: '.implode(',', $tags).'</div><br>';
 	}
