@@ -28,9 +28,9 @@ function createPhotoId()
     return $photo_id;
 }
 
-function getPhotoFormat($photo_id)
+function getPhotoFormat($photo_id, $up = true)
 {
-	$uploaddir = "../storage/";
+	$uploaddir = ($up ? ".." : "./engine")."/storage/";
 	foreach(SUP_PHOTO_FORMAT as $form)
 	{
 		if(file_exists($uploaddir.$photo_id.$form))

@@ -44,6 +44,15 @@ else
 			include "./engine/templates/advers.php";
 			break;
 		}
+		case "/profile":
+		{
+			if(!isset($_COOKIE['uid'])) include "./engine/templates/main_page.php";
+			if(!isset($_GET['uid']))
+				$_GET['uid'] = $_COOKIE['uid'];
+			$uid = $_GET['uid'];
+			include "./engine/templates/profile.php";
+			break;
+		}
 		case "/addadver":
 		{
 			$db = open_database_connection();

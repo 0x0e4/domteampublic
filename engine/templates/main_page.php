@@ -27,6 +27,8 @@ require_once "./engine/models/adver.php";
   	<?php if(!$GLOBALS['logged']) { ?>
   	<button id="Enter_Button" class="Enter_Button" onclick="navigateTo('./login')">Войти</button>
   	<button id="Register_Button" class="Enter_Button" onclick="navigateTo('./register')">Зарегистрироваться</button>
+  <?php } else { ?>
+  	<button id="Enter_Button" class="Enter_Button" onclick="navigateTo('./profile')">Мой профиль</button>
   <?php } ?>
   </div>
 

@@ -47,4 +47,28 @@ function getHousesOfUser(&$uid)
 	return count($result) > 0 ? $result : null;
 }
 
+function getUserData(&$uid)
+{
+	global $db;
+	if(!isUIDValid($uid)) return null;
+
+	$result = $db->query("SELECT * FROM `users` WHERE `id`={$uid}")->fetchAll(PDO::FETCH_ASSOC);
+
+	return count($result) > 0 ? $result[0] : null;
+}
+
+function getAge($birthday)
+{
+	$birthday = new DateTime($birthday);
+    $interval = $birthday->diff(new DateTime);
+    return $interval->y;
+}
+
+function getAddr($uid)
+{
+	global $db;
+	$result = $db->query("SELECT `address` FROM `houses` WHERE `id`=(SELECT `hid` FROM `residents` WHERE `uid`={$uid} LIMIT 1)")->fetchAll(PDO::FETCH_COLUMN);
+	return count($result) > 0 ? $result[0] : "";
+}
+
 ?>

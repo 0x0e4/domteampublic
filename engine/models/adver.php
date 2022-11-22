@@ -61,6 +61,14 @@ function getAdverTags($arr)
 		return array();
 }
 
+function getAdversOfUser($uid)
+{
+	global $db;
+	$query = $db->query("SELECT * FROM `advers` WHERE `uid`={$uid} ORDER BY `id` DESC");
+	$result = $query->fetchAll(PDO::FETCH_ASSOC);
+	return $result;
+}
+
 function getAdvers($arrhid)
 {
 	global $db;
