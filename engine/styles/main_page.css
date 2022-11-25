@@ -1,8 +1,9 @@
 .background_site{
   background-color: rgba(104,141,251,1);
-  width: 100%;
-  height: 100vh;
-  padding-top: 15%;
+    width: 100%;
+    height: 85vh;
+    padding-top: 15vh;
+    font-size: 3vh;
 }
 .block_advers{
   background-color: lightsteelblue;
@@ -50,4 +51,25 @@
 
 .picture {
   width: 40vw;
+}
+
+.selectAdverTagButton{
+  position: relative;
+    height: 4.5vh;
+    width: 12vw;
+    background: rgb(255 255 255);
+    color: rgb(0 0 0);
+    font-size: 1.7vh;
+    font-family: 'Verdana';
+    font-style: normal;
+    box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
+    border-radius: 30vh;
+    margin: 1vh 1vw;
+    border-color: rgb(104 141 251);
+}
+#select-tag{
+  
+  width: 12vw;
+    height: 4vh;
+    font-size: 3vh;
 }
