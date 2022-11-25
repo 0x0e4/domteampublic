@@ -15,9 +15,7 @@ require_once "./engine/models/adver.php";
 </head>
 <body> <header> <div class="header-panel">
   	<div class="container" onclick="Sliding_Panel()">
-  		<div class="bar_icon"></div>
-  		<div class="bar_icon"></div>
-  		<div class="bar_icon"></div>
+  		<img src="../../engine/images/munu_bar.svg" id="menu_bar_image" />
   		<div id="Sliding_Panel" class="Sliding_Panel">
   			<button class="To_Add_Adver_Button" onclick="navigateTo('./addadver')">Создать объявление</button>
   			<button class="To_Add_Adver_Button" onclick="navigateTo('./tags')">Тэги</button>
