@@ -1,0 +1,122 @@
+login-panel {
+	display: block;
+	text-align: center;
+}
+
+.error {
+	color: darkred;
+	font-weight: bold;
+}
+
+#submit-login{
+	box-sizing: border-box;
+	margin-top: 8.5135135135135%;
+	height: 06.941176%;
+	width: 65.66037%;
+	font-family: 'Verdana';
+	font-style: normal;	
+	font-size: 	3vh;
+	background-color: #5271FF;
+	color: 	white;
+	border: 0.3vh solid #545454;
+	border-radius: 	1.2vh;	
+	overflow: hidden;
+}
+#submit-register{
+	box-sizing: border-box;
+	margin-top: 3.243243243%;
+	height: 06.941176%;
+	width: 65.66037%;
+	font-family: 'Verdana';
+	font-style: normal;	
+	font-size: 	3vh;
+	background-color: #545454;
+	color: 	white;
+	border: 0.3vh solid #545454;
+	border-radius: 	1.2vh;	
+	overflow: hidden;
+}
+#pass{
+	box-sizing: border-box;
+	height: 8.235294%;
+	width: 65.66037%;
+	border: none;
+	position: static		;
+	text-align: center;
+	margin-top: 6.891891891%;
+	font-family: 'Verdana';
+	font-style: normal;
+	border: 0.3vh solid #545454;
+	border-radius: 	1.2vh;	
+}
+#mail{
+	box-sizing: border-box;
+	height: 8.235294%;
+	width: 65.66037%;
+	border: none;
+	position: static		;
+	text-align: center;
+	margin-top: 6.891891891%;
+	font-family: 'Verdana';
+	font-style: normal;
+	border: 0.3vh solid #545454;
+	border-radius: 	1.2vh;	
+}
+#register_bg {
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	background: #5271FF;
+	position: fixed;
+	z-index: -99999;
+}
+
+#register_logo_img {
+	position: relative;
+	height: 18.91891891vh;
+	width: 18.91891891vh;
+ 	margin-left: auto; 
+ 	margin-right: auto;
+ 	margin-top: 13.88888%;
+ 	margin-bottom: 0;
+ 	top: 1vh;
+	
+}
+#register_panel {
+	position: relative;
+	text-align: center;
+	font-size: smaller;
+	width: 27.6041vw;
+	height: 78.7037vh;
+	background: white;
+	z-index: 0;
+	margin-top: 10.6481vh;
+	margin-bottom: 10.6481vh;
+	margin-left:36.1979vw;
+	margin-right:36.1979vw;
+	border-radius: 	3vh;		
+}
+#q_no_acc{
+	font-size: 3vh;
+	border: 0.3vh solid #545454;
+	border-radius: 	1.2vh;	
+	height: 5%;
+	width: 65.66037%;
+	margin-left: auto; 
+ 	margin-right: auto;
+}
+input {
+	font-size: 	2vh;
+}
+img { 
+	position: relative; 
+	display: block;
+	margin: 3vh; 
+	border: none;
+	padding: 0px; 
+}
+.error {
+	color: darkred;
+	font-weight: bold;
+}

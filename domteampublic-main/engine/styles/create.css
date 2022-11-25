@@ -1,0 +1,38 @@
+#adver-panel{
+	text-align: center;
+	width: 60vw;
+	height: 80vh;
+	background: white;
+	z-index: 0;
+	margin: auto;
+	margin-top: 11vh;
+}
+#adver_bg{
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	background: rgba(104,141,251,1);
+	position: fixed;
+	z-index: -99999;
+}
+#adver-topic{
+	margin: auto;
+	margin-top: 5%;
+	width: 30vw;
+	height: 5vh;
+	text-align: center;
+}
+#adver-text{
+	margin: auto;
+	text-align: left;
+	width: 40vw;
+	height: 50vh;
+	margin-top: 5%;
+	resize: none;
+}
+#submit-add{
+	margin: auto;
+	margin: 5%;
+	text-align: center;
+}
