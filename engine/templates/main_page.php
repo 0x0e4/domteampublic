@@ -3,7 +3,7 @@ require_once "./engine/models/adver.php";
 ?>
 <html>
 <head>
-	<title>ДомТим</title>
+	<title>Мой Двор</title>
 	<link rel="stylesheet" href="./main.css">
 	<link rel="stylesheet" href="./engine/styles/header_main_page.css">
 	<link rel="stylesheet" href="./engine/styles/main_page.css">
