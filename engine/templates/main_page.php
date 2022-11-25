@@ -43,7 +43,7 @@ require_once "./engine/models/adver.php";
 				}
 				close_database_connection($db);
 				 ?>
-			</select><button onclick="selectAdverTag();">Добавить тег</button><br></div>
+			</select><button class = "selectAdverTagButton" onclick="selectAdverTag();">Добавить тег</button><br></div>
 	<div id = "block_advers" class = "block_advers">
 			<?php
 		$db = open_database_connection();
