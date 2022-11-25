@@ -1,5 +1,5 @@
 input {
-	font-size: 	large;
+	font-size: 	2vh;
 }
 login-panel {
 	display: block;
@@ -26,8 +26,9 @@ img {
 }
 
 #register_logo_img {
-	position: static;
-	height: 26.4150vh;
+	position: relative;
+	height: 18.91891891vh;
+	width: 18.91891891vh;
  	margin-left: auto; 
  	margin-right: auto;
  	margin-top: 13.88888%;
@@ -45,7 +46,7 @@ img {
 	margin-bottom: 10.6481vh;
 	margin-left:36.1979vw;
 	margin-right:36.1979vw;
-	border-radius: 	15px;		
+	border-radius: 	1.2vh;		
 }
 
 #mail{
@@ -56,8 +57,10 @@ img {
 	position: static		;
 	text-align: center;
 	margin-top: 02.23529%;
-	border: 1px solid #545454;
-	border-radius: 15px;
+	border: 0.3vh solid #545454;
+	border-radius: 	1.2vh;	
+	font-family: 'Verdana';
+	font-style: normal;
 }
 #name{
 	box-sizing: border-box;
@@ -67,8 +70,10 @@ img {
 	position: static		;
 	text-align: center;
 	margin-top: 02.23529%;
-	border: 1px solid #545454;
-	border-radius: 15px;
+	border: 0.3vh solid #545454;
+	border-radius: 	1.2vh;	
+	font-family: 'Verdana';
+	font-style: normal;
 }
 #surname {
 	box-sizing: border-box;
@@ -78,8 +83,10 @@ img {
 	position: static		;
 	text-align: center;
 	margin-top: 02.23529%;
-	border: 1px solid #545454;
-	border-radius: 15px;
+	border: 0.3vh solid #545454;
+	border-radius: 	1.2vh;	
+	font-family: 'Verdana';
+	font-style: normal;
 }
 #pass{
 	box-sizing: border-box;
@@ -89,12 +96,42 @@ img {
 	position: static		;
 	text-align: center;
 	margin-top: 02.23529%;
-	border: 1px solid #545454;
-	border-radius: 15px;
+	border: 0.3vh solid #545454;
+	border-radius: 	1.2vh;	
+	font-family: 'Verdana';
+	font-style: normal;
 }
 #submit_register{
 	box-sizing: border-box;
 	margin-top: 04.2352941%;
+	height: 06.941176%;
+	width: 65.66037%;
+	font-size: 	3vh;
+	background-color: #545454;
+	color: 	white;
+	border: 0.3vh solid #545454;
+	border-radius: 	1.2vh;	
+}
+#submit-login{
+	margin-top: 10%;
+	font-size: 3vh;
+}
+#register_panel_name{
+	position: relative;
+	margin: 0%;
+	font-family: 'Verdana';
+	font-style: normal;
+	font-size: 3vh	;
+	text-align: center;
+	margin-top: 5vh;
+	color: #000000;
+	border: 0vh solid #545454;
+	border-radius: 	1.2vh;	
+
+}
+#submit-login{
+	box-sizing: border-box;
+	margin-top: 3%;
 	height: 06.941176%;
 	width: 65.66037%;
 	font-size: 	large;
@@ -102,16 +139,4 @@ img {
 	color: 	white;
 	border: 1px solid #545454;
 	border-radius: 15px;
-}
-#submit-login{
-	margin-top: 10%;
-}
-#register_panel_name{
-	font-family: 'Verdana';
-	font-style: normal;
-	font-size: x-large	;
-	text-align: center;
-	margin-top: 4%;
-	color: #000000;
-
 }
